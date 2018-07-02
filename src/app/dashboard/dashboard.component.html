@@ -1,0 +1,42 @@
+<div class="container bg-light p-2">
+
+  <div class="row">
+    <div class="col-12">
+      <h1>Industrii</h1>
+      <div class="col-12 bg-dark text-white">
+        <div *ngFor="let industry of industries" class="row">
+          <div class="col-4">
+            <span>{{industry.name}}</span>
+          </div>
+          <div class="col-4">
+            One of three columns
+          </div>
+          <div class="col-4">
+            <a href="/edit/industry/{{industry.id}}"><i class="fa fa-edit"></i></a>
+            <a href="/remove/{{industry.id}}"><i class="fa fa-remove"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <hr class="text-black-50"/>
+    </div>
+    <div class="col-12">
+      <h1>Impreasri</h1>
+      <div class="col-12 bg-dark text-white">
+        <div *ngFor="let impresario of impresarios" class="row">
+          <div class="col-4">
+            <span>{{impresario.name}}</span>
+          </div>
+          <div class="col-4">
+            One of three columns
+          </div>
+          <div class="col-4">
+            <a href="/edit/impreasario/{{impresario.id}}"><i class="fa fa-edit"></i></a>
+            <a href="/remove/{{impresario.id}}"><i class="fa fa-remove"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
