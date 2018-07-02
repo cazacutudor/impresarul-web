@@ -1,64 +1,78 @@
-<div class="container">
-  <form class="text-white" #form="ngForm" (onSubmit)="onSubmit(form.value)">
+<div class="container p-4">
+  <h1>{{type | uppercase}} - Pagina de editare</h1>
+  <hr/>
 
-      <div class="form-group" *ngIf="itsAnIndustry()">
-        <label for="name">Nume</label>
-        <input type="text" id="name" class="form-control" name="name" value="{{name}}"/>
-      </div>
+  <div *ngIf="successMessage" class="alert alert-success mt-3">
 
-      <div class="form-group" *ngIf="itsAnIndustry()">
-        <label for="shortName">Prescurtare</label>
-        <input disabled type="text" id="shortName" class="form-control" name="shortName" value="{{shortName}}"/>
-      </div>
+    <div>
+      {{successMessage}}
+    </div>
 
-      <div class="form-group" *ngIf="itsATalent() || itsAnImpresario()">
+  </div>
+
+  <form #form="ngForm" (submit)="onSubmit(form.value)">
+    <div class="form-group" *ngIf="itsAnIndustry()">
+      <label for="name">Nume</label>
+      <input [(ngModel)]="name" type="text" id="name" class="form-control" name="name" value="{{name}}"/>
+    </div>
+
+    <div class="form-group" *ngIf="itsAnIndustry()">
+      <label for="shortName">Prescurtare</label>
+      <input disabled type="text" id="shortName" class="form-control" name="shortName" value="{{shortName}}"/>
+    </div>
+
+    <div class="form-row" *ngIf="itsATalent() || itsAnImpresario()">
+      <div class="form-group col-md-6">
         <label for="firstName">Prenume</label>
-        <input type="text" id="firstName" class="form-control" name="firstName" value="{{firstName}}"/>
+        <input [(ngModel)]="firstName" type="text" id="firstName" class="form-control" name="firstName" value="{{firstName}}"/>
       </div>
 
-      <div class="form-group" *ngIf="itsATalent() || itsAnImpresario()">
+      <div class="form-group col-md-6">
         <label for="lastName">Nume</label>
-        <input type="text" id="lastName" class="form-control" name="lastName" value="{{lastName}}"/>
+        <input [(ngModel)]="lastName" type="text" id="lastName" class="form-control" name="lastName" value="{{lastName}}"/>
       </div>
+    </div>
 
-      <div class="form-group" *ngIf="itsATalent() || itsAnImpresario()">
+    <div class="form-row" *ngIf="itsATalent() || itsAnImpresario()">
+      <div class="form-group col-md-4">
         <label for="phone">Telefon</label>
-        <input type="text" id="phone" class="form-control" name="phone" value="{{phone}}"/>
+        <input [(ngModel)]="phone" type="text" id="phone" class="form-control" name="phone" value="{{phone}}"/>
       </div>
 
-      <div class="form-group" *ngIf="itsATalent() || itsAnImpresario()">
+      <div class="form-group col-md-4">
         <label for="email">Email</label>
-        <input type="text" id="email" class="form-control" name="email" value="{{email}}"/>
+        <input [(ngModel)]="email" type="text" id="email" class="form-control" name="email" value="{{email}}"/>
       </div>
 
-      <div class="form-group" *ngIf="itsATalent() || itsAnImpresario()">
+      <div class="form-group col-md-4">
         <label for="age">Varsta</label>
-        <input type="text" id="age" class="form-control" name="age" value="{{age}}"/>
+        <input [(ngModel)]="age" type="text" id="age" class="form-control" name="age" value="{{age}}"/>
       </div>
+    </div>
 
-      <div class="form-group" *ngIf="itsATalent() || itsAnImpresario()">
-        <label for="gender">Domeniu</label>
-        <select [(ngModel)]="domain" class="form-control" id="domain" name="domain">
-          <option *ngFor="let domain of domains">{{domain}}</option>
-        </select>
-      </div>
+    <div class="form-group" *ngIf="itsATalent() || itsAnImpresario()">
+      <label for="gender">Domeniu</label>
+      <select [(ngModel)]="domain" class="form-control" id="domain" name="domain">
+        <option *ngFor="let domain of domains">{{domain}}</option>
+      </select>
+    </div>
 
-      <div class="form-group" *ngIf="itsATalent()">
-        <label for="gender">Tipul</label>
-        <select [(ngModel)]="gender" class="form-control" id="gender" name="gender">
-          <option *ngFor="let gender of genders">{{gender}}</option>
-        </select>
-      </div>
+    <div class="form-group" *ngIf="itsATalent()">
+      <label for="gender">Tipul</label>
+      <select [(ngModel)]="gender" class="form-control" id="gender" name="gender">
+        <option *ngFor="let gender of genders">{{gender}}</option>
+      </select>
+    </div>
 
-      <div class="form-group" *ngIf="itsATalent() || itsAnIndustry()">
-        <label for="description">Descriere</label>
-        <textarea class="form-control" id="description">{{description}}</textarea>
-      </div>
+    <div class="form-group" *ngIf="itsATalent() || itsAnIndustry()">
+      <label for="description">Descriere</label>
+      <textarea [(ngModel)]="description" class="form-control" id="description" name="description">{{description}}</textarea>
+    </div>
 
-      <div class="form-group" *ngIf="itsAnIndustry()">
-        <label for="shortDescription">Scurta Descriere</label>
-        <textarea class="form-control" id="shortDescription">{{shortDescription}}</textarea>
-      </div>
+    <div class="form-group" *ngIf="itsAnIndustry()">
+      <label for="shortDescription">Scurta Descriere</label>
+      <textarea [(ngModel)]="shortDescription" class="form-control" id="shortDescription" name="shortDescription">{{shortDescription}}</textarea>
+    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>

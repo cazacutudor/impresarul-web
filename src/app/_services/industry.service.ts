@@ -23,4 +23,10 @@ export class IndustryService {
 
     return this.http.get(this.baseUrl + path);
   }
+
+  update(id: string, body: any) {
+    const path = '/industries/' + id;
+
+    return this.http.put(this.baseUrl + path, body);
+  }
 }

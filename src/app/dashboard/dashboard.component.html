@@ -1,40 +1,33 @@
-<div class="container bg-light p-2">
+<div class="container-fluid bg-dark p-3">
+  <div class="container">
+    <div class="row mb-2">
+      <div class="col-12">
+        <img class="card-img" src="../assets/header-image.jpg"/>
 
-  <div class="row">
-    <div class="col-12">
-      <h1>Industrii</h1>
-      <div class="col-12 bg-dark text-white">
-        <div *ngFor="let industry of industries" class="row">
-          <div class="col-4">
-            <span>{{industry.name}}</span>
-          </div>
-          <div class="col-4">
-            One of three columns
-          </div>
-          <div class="col-4">
-            <a href="/edit/industry/{{industry.id}}"><i class="fa fa-edit"></i></a>
-            <a href="/remove/{{industry.id}}"><i class="fa fa-remove"></i></a>
-          </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <ul class="navbar-nav mr-auto">
+            <li *ngFor="let item of menuItems" class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="item.route">{{item.name}}</a>
+            </li>
+          </ul>
+
+          <a class="navbar-brand" href="/dashboard">Impresarul Web App</a>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="bg-light">
+          <router-outlet></router-outlet>
         </div>
       </div>
     </div>
-    <div class="col-12">
-      <hr class="text-black-50"/>
-    </div>
-    <div class="col-12">
-      <h1>Impreasri</h1>
-      <div class="col-12 bg-dark text-white">
-        <div *ngFor="let impresario of impresarios" class="row">
-          <div class="col-4">
-            <span>{{impresario.name}}</span>
-          </div>
-          <div class="col-4">
-            One of three columns
-          </div>
-          <div class="col-4">
-            <a href="/edit/impreasario/{{impresario.id}}"><i class="fa fa-edit"></i></a>
-            <a href="/remove/{{impresario.id}}"><i class="fa fa-remove"></i></a>
-          </div>
+
+    <div class="row mt-2">
+      <div class="col-12">
+        <div class="footer-copyright bg-light">
+          <p class="p-1 text-center">Cazacu Tudor Laurentiu, Licenta 2018</p>
         </div>
       </div>
     </div>

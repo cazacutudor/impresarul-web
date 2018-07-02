@@ -1,7 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {IndustryService} from "../_services/industry.service";
-import {ImpresarioService} from "../_services/impresario.service";
-import {TalentService} from "../_services/talent.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -10,18 +7,20 @@ import {TalentService} from "../_services/talent.service";
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private industryService: IndustryService,
-              private impreasrioService: ImpresarioService,
-              private talentService: TalentService) {
+  menuItems = [
+    {name: 'Industrii', route: '/dashboard/industries'},
+    {name: 'Impresari', route: '/dashboard/impresarios'},
+    {name: 'Talente', route: '/dashboard/talents'}
+
+  ];
+
+  constructor() {
   }
 
-  industries: any;
-  impresarios: any;
+  selectedItem: any;
 
   ngOnInit() {
-    this.industryService.getAll().subscribe(result => this.industries = result);
-    this.impreasrioService.getAll().subscribe(result => this.impresarios = result);
-    this.talentService.getAll().subscribe(result => console.log(result));
+
   }
 
 }

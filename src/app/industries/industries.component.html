@@ -1,0 +1,36 @@
+<div class="row p-3">
+  <div class="col-12">
+    <h1>Industri</h1>
+  </div>
+  <div class="col-12">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Prescurtare</th>
+        <th scope="col">Scurta descriere</th>
+        <th scope="col">Edit</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let industry of content">
+        <th scope="row">{{industry.id}}</th>
+        <td>{{industry.name}}</td>
+        <td>{{industry.shortName}}</td>
+        <td>{{industry.shortDescription}}</td>
+        <td>
+          <div class="row">
+            <div class="col-3">
+              <a href="/dashboard/edit/industry/{{industry.id}}"><i class="fa fa-edit"></i></a>
+            </div>
+            <div class="col-3">
+              <a href="/dashboard/remove/industry/{{industry.id}}"><i class="fa fa-remove"></i></a>
+            </div>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

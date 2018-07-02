@@ -1,0 +1,42 @@
+<div class="row p-3">
+  <div class="col-12">
+    <h1>Impresari</h1>
+  </div>
+  <div class="col-12">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+        <th scope="col">Varsta</th>
+        <th scope="col">Domeniu</th>
+        <th scope="col">Edit</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let impresario of content">
+        <th scope="row">{{impresario.id}}</th>
+        <td>{{impresario.firstName}}</td>
+        <td>{{impresario.lastName}}</td>
+        <td>{{impresario.phone}}</td>
+        <td>{{impresario.email}}</td>
+        <td>{{impresario.age}}</td>
+        <td>{{impresario.domain}}</td>
+        <td>
+          <div class="row">
+            <div class="col-3">
+              <a href="/dashboard/edit/impresario/{{impresario.id}}"><i class="fa fa-edit"></i></a>
+            </div>
+            <div class="col-3">
+              <a href="/dashboard/remove/impresario/{{impresario.id}}"><i class="fa fa-remove"></i></a>
+            </div>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
@@ -20,7 +20,12 @@ export class ImpresarioService {
   get(id: string) {
     const path = '/impresarios/' + id;
 
-
     return this.http.get(this.baseUrl + path);
+  }
+
+  update(id: string, body: any) {
+    const path = '/impresarios/' + id;
+
+    return this.http.put(this.baseUrl + path, body);
   }
 }

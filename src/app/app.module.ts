@@ -9,6 +9,9 @@ import {FormsModule} from "@angular/forms";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {HttpClientModule} from "@angular/common/http";
 import { EditComponent } from './edit/edit.component';
+import { TalentsComponent } from './talents/talents.component';
+import { IndustriesComponent } from './industries/industries.component';
+import { ImpresariosComponent } from './impresarios/impresarios.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { EditComponent } from './edit/edit.component';
     LoginComponent,
     LoginFormComponent,
     DashboardComponent,
-    EditComponent
+    EditComponent,
+    TalentsComponent,
+    IndustriesComponent,
+    ImpresariosComponent
   ],
   imports: [
     BrowserModule,

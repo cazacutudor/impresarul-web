@@ -23,4 +23,10 @@ export class TalentService {
 
     return this.http.get(this.baseUrl + path);
   }
+
+  update(id: string, body: any) {
+    const path = '/talents/' + id;
+
+    return this.http.put(this.baseUrl + path, body);
+  }
 }

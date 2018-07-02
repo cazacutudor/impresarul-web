@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ImpresarioService} from '../_services/impresario.service';
 import {IndustryService} from '../_services/industry.service';
 import {TalentService} from '../_services/talent.service';
+import {Observable} from "rxjs/index";
 
 @Component({
   selector: 'app-edit',
@@ -39,6 +40,8 @@ export class EditComponent implements OnInit {
   domain: string;
   description: string;
 
+  successMessage: string;
+
   constructor(private activatedRoute: ActivatedRoute,
               private industryService: IndustryService,
               private impreasrioService: ImpresarioService,
@@ -52,7 +55,6 @@ export class EditComponent implements OnInit {
     });
 
     this.getData().subscribe(data => {
-      console.log(data);
       this.name = data.name;
       this.shortName = data.shortName;
       this.firstName = data.firstName;
@@ -69,6 +71,8 @@ export class EditComponent implements OnInit {
 
   getData() {
     let data = null;
+
+    console.log(this.type);
 
     if (this.type === 'industry') {
       data = this.industryService.get(this.id.toString());
@@ -94,7 +98,19 @@ export class EditComponent implements OnInit {
   }
 
   onSubmit(value: any) {
-    console.log(value);
-  }
+    let service: any = null;
 
+    if (this.type === 'industry') {
+      service = this.industryService.update(this.id.toString(), value);
+    } else if (this.type === 'impresario') {
+      service = this.impreasrioService.update(this.id.toString(), value);
+    } else if (this.type === 'talent') {
+      service = this.talentService.update(this.id.toString(), value);
+    }
+
+    service.subscribe(
+      data => this.successMessage = 'Datele au fost modificate cu success !',
+      error => console.log(error)
+    );
+  }
 }
