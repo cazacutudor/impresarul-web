@@ -29,4 +29,16 @@ export class TalentService {
 
     return this.http.put(this.baseUrl + path, body);
   }
+
+  new(body: any) {
+    const path = '/talents';
+
+    return this.http.post(this.baseUrl + path, body);
+  }
+
+  remove(id: any) {
+    const path = '/talents/' + id;
+
+    return this.http.delete(this.baseUrl + path);
+  }
 }

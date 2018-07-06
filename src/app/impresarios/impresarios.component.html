@@ -3,13 +3,25 @@
     <h1>Impresari</h1>
   </div>
   <div class="col-12">
+    <button type="button" routerLink="/dashboard/new/impresario" class="btn btn-primary m-2 pull-right"><i class="fa fa-plus" ></i> Add new</button>
+  </div>
+  <div class="col-12">
+    <div *ngIf="successMessage" class="alert alert-success mt-3">
+
+      <div>
+        {{successMessage}}
+      </div>
+
+    </div>
+  </div>
+  <div class="col-12">
     <table class="table">
       <thead>
       <tr>
         <th scope="col">Id</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Phone</th>
+        <th scope="col">Prenume</th>
+        <th scope="col">Nume</th>
+        <th scope="col">Telefon</th>
         <th scope="col">Email</th>
         <th scope="col">Varsta</th>
         <th scope="col">Domeniu</th>
@@ -24,14 +36,14 @@
         <td>{{impresario.phone}}</td>
         <td>{{impresario.email}}</td>
         <td>{{impresario.age}}</td>
-        <td>{{impresario.domain}}</td>
+        <td>{{findIndustryName(impresario.industry.id)}}</td>
         <td>
           <div class="row">
             <div class="col-3">
               <a href="/dashboard/edit/impresario/{{impresario.id}}"><i class="fa fa-edit"></i></a>
             </div>
             <div class="col-3">
-              <a href="/dashboard/remove/impresario/{{impresario.id}}"><i class="fa fa-remove"></i></a>
+              <a href="/dashboard/impresarios" (click)="onRemoveClicked(impresario.id)"><i class="fa fa-remove"></i></a>
             </div>
           </div>
         </td>

@@ -3,7 +3,6 @@ import {ActivatedRoute} from '@angular/router';
 import {ImpresarioService} from '../_services/impresario.service';
 import {IndustryService} from '../_services/industry.service';
 import {TalentService} from '../_services/talent.service';
-import {Observable} from "rxjs/index";
 
 @Component({
   selector: 'app-edit',
@@ -40,7 +39,14 @@ export class EditComponent implements OnInit {
   domain: string;
   description: string;
 
+  impresarioId: string;
+  industryId: string;
+
   successMessage: string;
+
+  talents: any;
+  industries: any;
+  impresarios: any;
 
   constructor(private activatedRoute: ActivatedRoute,
               private industryService: IndustryService,
@@ -66,13 +72,29 @@ export class EditComponent implements OnInit {
       this.domain = data.domain;
       this.description = data.description;
       this.shortDescription = data.shortDescription;
+
+      if (this.itsATalent()) {
+        this.impresarioId = data.impresario.id;
+      }
+
+      if (this.itsAnImpresario()) {
+        this.industryId = data.industry.id;
+      }
     });
+
+    this.talentService.getAll().subscribe(
+      data => this.talents = data
+    );
+    this.industryService.getAll().subscribe(
+      data => this.industries = data
+    );
+    this.impreasrioService.getAll().subscribe(
+      data => this.impresarios = data
+    );
   }
 
   getData() {
     let data = null;
-
-    console.log(this.type);
 
     if (this.type === 'industry') {
       data = this.industryService.get(this.id.toString());

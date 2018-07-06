@@ -1,5 +1,5 @@
 <div class="container p-4">
-  <h1>{{type | uppercase}} - Pagina de editare</h1>
+  <h1>{{type | uppercase}} - Pagina de adaugare</h1>
   <hr/>
 
   <div *ngIf="successMessage" class="alert alert-success mt-3">
@@ -13,42 +13,42 @@
   <form #form="ngForm">
     <div class="form-group" *ngIf="itsAnIndustry()">
       <label for="name">Nume</label>
-      <input [(ngModel)]="name" type="text" id="name" class="form-control" name="name" value="{{name}}"/>
+      <input [(ngModel)]="name" type="text" id="name" class="form-control" name="name" placeholder="Nume"/>
     </div>
 
     <div class="form-group" *ngIf="itsAnIndustry()">
       <label for="shortName">Prescurtare</label>
-      <input disabled type="text" id="shortName" class="form-control" name="shortName" value="{{shortName}}"/>
+      <input [(ngModel)]="shortName" type="text" id="shortName" class="form-control" name="shortName" placeholder="Prescurtare"/>
     </div>
 
     <div class="form-row" *ngIf="itsATalent() || itsAnImpresario()">
       <div class="form-group col-md-6">
         <label for="firstName">Prenume</label>
         <input [(ngModel)]="firstName" type="text" id="firstName" class="form-control" name="firstName"
-               value="{{firstName}}"/>
+               placeholder="Prenume"/>
       </div>
 
       <div class="form-group col-md-6">
         <label for="lastName">Nume</label>
         <input [(ngModel)]="lastName" type="text" id="lastName" class="form-control" name="lastName"
-               value="{{lastName}}"/>
+               placeholder="Nume"/>
       </div>
     </div>
 
     <div class="form-row" *ngIf="itsATalent() || itsAnImpresario()">
       <div class="form-group col-md-4">
         <label for="phone">Telefon</label>
-        <input [(ngModel)]="phone" type="text" id="phone" class="form-control" name="phone" value="{{phone}}"/>
+        <input [(ngModel)]="phone" type="text" id="phone" class="form-control" name="phone" placeholder="Telefon"/>
       </div>
 
       <div class="form-group col-md-4">
         <label for="email">Email</label>
-        <input [(ngModel)]="email" type="text" id="email" class="form-control" name="email" value="{{email}}"/>
+        <input [(ngModel)]="email" type="text" id="email" class="form-control" name="email" placeholder="Email"/>
       </div>
 
       <div class="form-group col-md-4">
         <label for="age">Varsta</label>
-        <input [(ngModel)]="age" type="text" id="age" class="form-control" name="age" value="{{age}}"/>
+        <input [(ngModel)]="age" type="text" id="age" class="form-control" name="age" placeholder="Varsta"/>
       </div>
     </div>
 
@@ -68,20 +68,21 @@
 
     <div class="form-group" *ngIf="itsATalent() || itsAnIndustry()">
       <label for="description">Descriere</label>
-      <textarea [(ngModel)]="description" class="form-control" id="description"
-                name="description">{{description}}</textarea>
+      <textarea [(ngModel)]="description" class="form-control" id="description" name="description"
+                placeholder="Descriere"></textarea>
     </div>
 
     <div class="form-group" *ngIf="itsAnIndustry()">
       <label for="shortDescription">Scurta Descriere</label>
-      <textarea [(ngModel)]="shortDescription" class="form-control" id="shortDescription" name="shortDescription">{{shortDescription}}</textarea>
+      <textarea [(ngModel)]="shortDescription" class="form-control" id="shortDescription" name="shortDescription"
+                placeholder="Scruta descriere"></textarea>
     </div>
 
     <div class="form-row" *ngIf="itsATalent()">
       <div class="form-group col-md-12">
         <label for="impresario">Impresar</label>
-        <select [(ngModel)]="impresarioId" class="form-control" id="impresario" name="impresario">
-          <option *ngFor="let impresario of impresarios" value="{{impresario.id}}">{{impresario.lastName}} {{impresario.firstName}}</option>
+        <select [(ngModel)]="impresario" class="form-control" id="impresario" name="impresario">
+          <option *ngFor="let entry of impresarios" value="{{entry.id}}">{{entry.lastName}} {{entry.firstName}}</option>
         </select>
       </div>
     </div>
@@ -89,8 +90,8 @@
     <div class="form-row" *ngIf="itsAnImpresario()">
       <div class="form-group col-md-12">
         <label for="industry">Industrie</label>
-        <select [(ngModel)]="industryId" class="form-control" id="industry" name="industry">
-          <option *ngFor="let industry of industries" value="{{industry.id}}">{{industry.name}}</option>
+        <select [(ngModel)]="industry" class="form-control" id="industry" name="industry">
+          <option *ngFor="let entry of industries" value="{{entry.id}}">{{entry.name}}</option>
         </select>
       </div>
     </div>

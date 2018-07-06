@@ -20,7 +20,6 @@ export class IndustryService {
   get(id: string) {
     const path = '/industries/' + id;
 
-
     return this.http.get(this.baseUrl + path);
   }
 
@@ -28,5 +27,17 @@ export class IndustryService {
     const path = '/industries/' + id;
 
     return this.http.put(this.baseUrl + path, body);
+  }
+
+  new(body: any) {
+    const path = '/industries';
+
+    return this.http.post(this.baseUrl + path, body);
+  }
+
+  remove(id: any) {
+    const path = '/industries/' + id;
+
+    return this.http.delete(this.baseUrl + path);
   }
 }

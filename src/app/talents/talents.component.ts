@@ -12,9 +12,17 @@ export class TalentsComponent implements OnInit {
   }
 
   content: any;
+  successMessage: string;
 
   ngOnInit() {
     this.talentService.getAll().subscribe(result => this.content = result);
+  }
+
+  onRemoveClicked(id: string) {
+    this.talentService.remove(id).subscribe(
+      data => this.successMessage = 'Datele au fost sterse cu success !',
+      error => console.log(error)
+    );
   }
 
 }

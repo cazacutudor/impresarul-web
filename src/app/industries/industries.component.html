@@ -3,11 +3,23 @@
     <h1>Industri</h1>
   </div>
   <div class="col-12">
+    <button type="button" routerLink="/dashboard/new/industry" class="btn btn-primary m-2 pull-right"><i class="fa fa-plus" ></i> Add new</button>
+  </div>
+  <div class="col-12">
+    <div *ngIf="successMessage" class="alert alert-success mt-3">
+
+      <div>
+        {{successMessage}}
+      </div>
+
+    </div>
+  </div>
+  <div class="col-12">
     <table class="table">
       <thead>
       <tr>
         <th scope="col">Id</th>
-        <th scope="col">Name</th>
+        <th scope="col">Nume</th>
         <th scope="col">Prescurtare</th>
         <th scope="col">Scurta descriere</th>
         <th scope="col">Edit</th>
@@ -25,7 +37,7 @@
               <a href="/dashboard/edit/industry/{{industry.id}}"><i class="fa fa-edit"></i></a>
             </div>
             <div class="col-3">
-              <a href="/dashboard/remove/industry/{{industry.id}}"><i class="fa fa-remove"></i></a>
+              <a href="/dashboard/industries" (click)="onRemoveClicked(industry.id)"><i class="fa fa-remove"></i></a>
             </div>
           </div>
         </td>

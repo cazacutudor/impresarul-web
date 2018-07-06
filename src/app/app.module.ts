@@ -12,6 +12,8 @@ import { EditComponent } from './edit/edit.component';
 import { TalentsComponent } from './talents/talents.component';
 import { IndustriesComponent } from './industries/industries.component';
 import { ImpresariosComponent } from './impresarios/impresarios.component';
+import { NewComponent } from './new/new.component';
+import { RemoveComponent } from './remove/remove.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ImpresariosComponent } from './impresarios/impresarios.component';
     EditComponent,
     TalentsComponent,
     IndustriesComponent,
-    ImpresariosComponent
+    ImpresariosComponent,
+    NewComponent,
+    RemoveComponent
   ],
   imports: [
     BrowserModule,
