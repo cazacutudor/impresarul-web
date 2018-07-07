@@ -6,14 +6,13 @@ import {LoginComponent} from './login/login.component';
 import {AppRoutingModule} from './/app-routing.module';
 import {LoginFormComponent} from './login-form/login-form.component';
 import {FormsModule} from "@angular/forms";
-import { DashboardComponent } from './dashboard/dashboard.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
 import {HttpClientModule} from "@angular/common/http";
-import { EditComponent } from './edit/edit.component';
-import { TalentsComponent } from './talents/talents.component';
-import { IndustriesComponent } from './industries/industries.component';
-import { ImpresariosComponent } from './impresarios/impresarios.component';
-import { NewComponent } from './new/new.component';
-import { RemoveComponent } from './remove/remove.component';
+import {EditComponent} from './edit/edit.component';
+import {TalentsComponent} from './talents/talents.component';
+import {IndustriesComponent} from './industries/industries.component';
+import {ImpresariosComponent} from './impresarios/impresarios.component';
+import {NewComponent} from './new/new.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +24,7 @@ import { RemoveComponent } from './remove/remove.component';
     TalentsComponent,
     IndustriesComponent,
     ImpresariosComponent,
-    NewComponent,
-    RemoveComponent
+    NewComponent
   ],
   imports: [
     BrowserModule,
